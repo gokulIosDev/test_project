@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project/firebase/widgets/uihelper.dart';
+import 'package:project/forget/forgetPassword.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -35,13 +36,32 @@ class _SignInScreenState extends State<SignInScreen> {
           SizedBox(
             height: 20,
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 15),
+                child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ForgetPasswordScreen()));
+                    },
+                    child: Text("Forget Password?")),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
           ElevatedButton(
               onPressed: () {
                 signIn(
                     email: emailController.text.toString(),
                     password: passwordController.text.toString());
               },
-              child: Text("SignIn"))
+              child: Text("SignIn")),
         ],
       ),
     );

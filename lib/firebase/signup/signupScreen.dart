@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project/firebase/widgets/uihelper.dart';
+import 'package:project/forget/forgetPassword.dart';
 import 'package:project/signIn/signInScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -48,9 +49,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     context: context,
                     title: "title",
                     content: "content",
-                    buttonText: "buttonText",onPressed: (){
-                      print("dismiss");
-                });
+                    buttonText: "buttonText",
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignInScreen()));
+                    });
               },
               child: Text("dilogBox"))
         ],
