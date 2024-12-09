@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:project/firebase/signup/signupScreen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project/api/api_helper.dart';
+import 'package:project/api/bloc/quots_bloc.dart';
+import 'package:project/api/home_page.dart';
 import 'package:project/firebase_options.dart';
 
 void main() async {
@@ -18,11 +21,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SignUpScreen(),
+      home: BlocProvider(
+        create: (context) => QuotsBloc(apiHelper: ApiHelper()),
+        child: HomePage(),
+      ),
     );
   }
 }

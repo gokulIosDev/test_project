@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project/firebase/widgets/uihelper.dart';
-import 'package:project/forget/forgetPassword.dart';
-import 'package:project/signIn/signInScreen.dart';
+import 'package:project/firebase/signIn/signInScreen.dart';
+import 'package:project/widgets/uihelper.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -54,6 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
+
                               builder: (context) => SignInScreen()));
                     });
               },
